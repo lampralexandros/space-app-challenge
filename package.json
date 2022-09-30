@@ -1,0 +1,52 @@
+{
+  "name": "wabli-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-modules --es-module-specifier-resolution=node server/server.js",
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node server/server.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "start-server-and-front": "concurrently \"cd ../wabli-code-generation-frontend && npm start\" \"cd ../wabli-code-generation && echo starting_server && nodemon --experimental-modules --es-module-specifier-resolution=node server/server.js \"  ",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@sentry/node": "^6.7.2",
+    "@sentry/tracing": "^6.7.2",
+    "accesscontrol": "^2.2.1",
+    "body-parser": "^1.19.0",
+    "concurrently": "^7.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.3",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.1.0",
+    "octokit": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.4",
+    "nodemon": "^2.0.4",
+    "supertest": "^6.1.3"
+  },
+  "engines": {
+    "node": "14.17.6",
+    "npm": "7.22.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {},
+    "modulePathIgnorePatterns": [
+      "/__tests__/_resources/*",
+      "/__tests__/__mocks__/_*"
+    ]
+  }
+}
